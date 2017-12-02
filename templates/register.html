@@ -1,0 +1,75 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="./register_files/index.css">
+    <title>注册新账户-科里科气</title>
+    <meta name="keywords" content="科里科气，科气研究所，中国科学技术大学，中科大，现代软件工程">
+    <meta name="description" content="Page prototype v1.0.2">
+    <meta name="author" content="USTC Modern Software Engineering KLKQYFCT">
+    <meta name="revised" content="Bowen Jiang, 11/14/17">
+</head>
+<body background="./register_files/background.jpg">
+    <div id="header">
+        <div class="top_title_left">
+            <img src="./register_files/teamname.jpg" class="teamname">
+        </div>
+        <div class="top_title_fast_link_right">
+            <pre><a id="account_remember_login_state_welcome" class="white">欢迎你！ 1</a>    <a id="login_or_exit" href="http://101.132.149.219:82/klkqyfct/index.html" class="white">退出</a>    <a href="http://101.132.149.219:82/klkqyfct/self_study/home_page.html" class="white">首页</a>    <a href="http://101.132.149.219:82/klkqyfct/top_index/regestered.html" class="white">注册</a>    <a href="http://101.132.149.219:82/klkqyfct/top_index/help.html" class="white">帮助</a>    <a href="http://101.132.149.219:82/klkqyfct/top_index/contect_us.html" class="white">联系我们</a></pre>
+        </div>
+        <hr>
+    </div>
+    <br><br><br><br><br>
+    <div>
+        <div class="up_title_sup">
+            <b>注册新用户</b>
+        </div>
+        <hr>
+    </div>
+    <br><br>
+    <div class="login" border="1">
+        <div class="login_text">
+            <br>
+            <br>
+            <form id="regesteredForm" action="/register" method="post">               
+                    账号：
+                    <input name="account" id="account" class="suitheight" type="text" placeholder="请输入6-16位字符" size="20" maxlength="16" onclick="check_info()">
+                    <span id="account_warning"></span>
+                <br><br>
+                    密码：
+                    <input name="password" id="password" class="suitheight" type="password" placeholder="请输入6-16位字符" size="20" maxlength="16" onclick="check_info()">
+                    <span id="password_warning"></span>
+                <br><br>
+                    确认密码：
+                    <input name="confirm_password" id="confirm_password" class="suitheight" type="password" placeholder="请确认密码" size="20" maxlength="16" onclick="check_info()">
+                    <span id="confirm_password_warning"></span>
+                <br><br>
+                    昵称：
+                    <input name="nickname" id="nickname" class="suitheight" type="text" placeholder="请输入6-16位字符" size="20" maxlength="16" onclick="check_info()">
+                    <span id="nickname_warning"></span>
+                <br><br>
+                    手机号码：
+                    <input name="cellphone_number" id="cellphone_number" class="suitheight" type="number" placeholder="请输入手机号码" size="20" maxlength="11" onclick="check_info()">
+                    <span id="cellphone_number_warning"></span>
+                <br><br>
+                    科大邮箱：
+                    <input name="ustc_email" id="ustc_email" class="suitheight" type="text" placeholder="@mail.ustc.edu.cn" size="20" maxlength="30" onclick="check_info()">
+                    <span id="ustc_email_warning"></span>
+                <br><br>
+                    验证码：
+                    <input name="verification_code" id="verification_code" class="suitheight" type="text" placeholder="不区分大小写（请输入klkq）" size="20" maxlength="4" onclick="check_info()">
+                    <span id="verification_code_warning"></span>
+
+                <button class="suit_text_small ten_words">发送验证码到科大邮箱</button>
+                <br>
+                <br>
+                <input name= "注册" type="submit" class="suit_text two_words" value="注册">
+                <br><br><br><br>
+            </form>
+        </div>
+    </div>
+    <br><br><br><br><br><br>  
+    <div id="footer">
+        <p>联系我们：<a href="http://www.cnblogs.com/klkqyfct/" class="white">http://www.cnblogs.com/klkqyfct/</a></p>
+    </div>
+
+
+
+</body></html>

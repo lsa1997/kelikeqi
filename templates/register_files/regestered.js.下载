@@ -1,0 +1,112 @@
+﻿
+//检查注册页面信息是否符合格式要求
+function check_info()
+{
+    var all_info_are_right = 7;
+
+    var account = document.getElementById("account").value;
+    if ((account.length != 0) && ((account.length < 6) || (account.length >16)))
+    {
+        var account_warning = document.getElementById("account_warning");
+        account_warning.innerHTML = "账号为6-16位字符" 
+    }
+    else
+    {
+        var account_warning = document.getElementById("account_warning");
+        account_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    var password = document.getElementById("password").value;
+    if ((password.length != 0) && ((password.length < 6) || (password.length > 16))) {
+        var password_warning = document.getElementById("password_warning");
+        password_warning.innerHTML = "密码为6-16个字符"
+    }
+    else
+    {
+        var password_warning = document.getElementById("password_warning");
+        password_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    var password = document.getElementById("password").value;
+    var confirm_password = document.getElementById("confirm_password").value;
+    if (password != confirm_password) {
+        var confirm_password_warning = document.getElementById("confirm_password_warning");
+        confirm_password_warning.innerHTML = "两次密码输入应该相同"
+    }
+    else {
+        var confirm_password_warning = document.getElementById("confirm_password_warning");
+        confirm_password_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    var nickname = document.getElementById("nickname").value;
+    if ((nickname.length != 0) && ((nickname.length < 6) || (nickname.length > 16))) {
+        var nickname_warning = document.getElementById("nickname_warning");
+        nickname_warning.innerHTML = "昵称为6-16个字符"
+    }
+    else {
+        var nickname_warning = document.getElementById("nickname_warning");
+        nickname_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    var cellphone_number = document.getElementById("cellphone_number").value;
+    if ((cellphone_number.length != 0) && ((cellphone_number.length != 11) || isNaN(cellphone_number))) {
+        var cellphone_number_warning = document.getElementById("cellphone_number_warning");
+        cellphone_number_warning.innerHTML = "手机号码为11位阿拉伯数字"
+    }
+    else {
+        var cellphone_number_warning = document.getElementById("cellphone_number_warning");
+        cellphone_number_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    var reg = /^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@mail.ustc.edu.cn$/gi;
+    var ustc_email = document.getElementById("ustc_email").value;
+    if ((ustc_email.length != 0) && (!reg.test(ustc_email))) {
+        var ustc_email_warning = document.getElementById("ustc_email_warning");
+        ustc_email_warning.innerHTML = "邮箱不是科大学生邮箱"
+    }
+    else {
+        var ustc_email_warning = document.getElementById("ustc_email_warning");
+        ustc_email_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    var verification_code = document.getElementById("verification_code").value;
+    if ((verification_code.length != 0) && (verification_code != 'klkq')) {
+        var verification_code_warning = document.getElementById("verification_code_warning");
+        verification_code_warning.innerHTML = "验证码错误"
+    }
+    else {
+        var verification_code_warning = document.getElementById("verification_code_warning");
+        verification_code_warning.innerHTML = "";
+        all_info_are_right--;
+    }
+
+    if (account.length * password.length * confirm_password.length * nickname.length * cellphone_number.length * ustc_email.length * verification_code.length == 0)
+    {
+        all_info_are_right++;
+    }
+
+    return all_info_are_right;
+}
+
+//注册成功跳转页面
+function goToLoginFromRegestered()
+{
+    if (check_info() == 0)
+    {
+        alert("注册成功！点击确定，跳转到登录界面。");
+        location.href = "'/klkqyfct/index.html'"
+        return true;
+    }
+    else
+    {
+        alert("尚有信息未填写完整！");
+        return false;
+    }
+}
+

@@ -1,0 +1,87 @@
+﻿
+$(document).ready(function () {
+    //第一次展示
+    $("#self_study_1").fadeIn();
+    $("#self_study_2").fadeIn("slow");
+    $("#self_study_3").fadeIn(1500);
+    //标题醒目
+    $("#up_title").animate({ left: '-10%', fontSize: '50px' }, "fast")
+                 .animate({ left: '+=10%', fontSize: '60px' }, "fast");
+    $("#up_title_sup").animate({ left: '10%', fontSize: '30px' }, "fast")
+                .animate({ left: '-=10%', fontSize: '40px' }, "fast");
+
+    //不看消息
+    $("#dont_see1").click(function () {
+        $(this).parents(".simple_self_study").hide("slow");
+    });
+    $("#dont_see2").click(function () {
+        $(this).parents(".simple_self_study").hide("slow");
+    });
+    $("#dont_see3").click(function () {
+        $(this).parents(".simple_self_study").hide("slow");
+    });
+    //展开收起
+    $("#expand_more_1").click(function () {
+        if (document.getElementById('expand_more_1').innerHTML.match("展开更多"))
+        {
+            document.getElementById('expand_more_1').innerHTML = "收起";
+        }
+        else {
+            document.getElementById('expand_more_1').innerHTML = "展开更多";
+        }
+        $("#more_infomation_1").slideToggle("slow");
+    });
+    $("#expand_more_2").click(function () {
+        if (document.getElementById('expand_more_2').innerHTML.match("展开更多")) {
+            document.getElementById('expand_more_2').innerHTML = "收起";
+        }
+        else {
+            document.getElementById('expand_more_2').innerHTML = "展开更多";
+        }
+        $("#more_infomation_2").slideToggle("slow");
+    });
+    $("#expand_more_3").click(function () {
+        if (document.getElementById('expand_more_3').innerHTML.match("展开更多")) {
+            document.getElementById('expand_more_3').innerHTML = "收起";
+        }
+        else {
+            document.getElementById('expand_more_3').innerHTML = "展开更多";
+        }
+        $("#more_infomation_3").slideToggle("slow");
+    });
+});
+
+$(document).ready(function () {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            xmlDoc      = xmlhttp.responseXML;
+            nickname    = xmlDoc.getElementsByTagName("nickname");
+            sex         = xmlDoc.getElementsByTagName("sex");
+            department  = xmlDoc.getElementsByTagName("department");
+            keqi        = xmlDoc.getElementsByTagName("keqi");
+            studytime  = xmlDoc.getElementsByTagName("studytime");
+            studylocation = xmlDoc.getElementsByTagName("studylocation");
+            grade       = xmlDoc.getElementsByTagName("grade");
+            for (i = 1; i <= nickname.length; i++)
+            {
+                document.getElementById("info_" + i + "_nickname").innerHTML    = nickname[i - 1].childNodes[0].nodeValue;
+                document.getElementById("info_" + i + "_sex").innerHTML         = sex[i - 1].childNodes[0].nodeValue;
+                document.getElementById("info_" + i + "_department").innerHTML  = department[i - 1].childNodes[0].nodeValue;
+                document.getElementById("info_" + i + "_keqi").innerHTML        = keqi[i - 1].childNodes[0].nodeValue;
+                document.getElementById("info_" + i + "_studytime").innerHTML  = studytime[i - 1].childNodes[0].nodeValue;
+                document.getElementById("info_" + i + "_studylocation").innerHTML = studylocation[i - 1].childNodes[0].nodeValue;
+                document.getElementById("info_" + i + "_grade").innerHTML       = grade[i - 1].childNodes[0].nodeValue;
+            }
+        }
+    }
+    xmlhttp.open("GET", "/klkqyfct/data/test.xml", true);
+    xmlhttp.send();
+});
+
